@@ -1,0 +1,50 @@
+<title>generate_sales_report</title>
+<style>
+body {
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* LOADER 2 */
+.loader {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  color:dodgerblue;
+}
+
+.loader::after {
+  content: '\2026';
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: dots steps(4, end) 2s infinite;
+  width: 0px;
+}
+
+@keyframes dots {
+  to {
+    width: 1.25em;
+  }
+}
+
+
+ </style>
+<!-- Loader 2 -->
+<div class="loader">Processing report</div>
+
+<script>
+const loader = document.querySelector('.loader');
+
+function init() {
+  setTimeout(() => {
+    loader.style.opacity = 0;
+    loader.style.display = 'none';
+    window.location.assign("http://localhost/inventory_system/index.php?page=sales_report");
+  }, 9500);
+}
+
+init();
+</script>
